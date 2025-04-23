@@ -50,13 +50,22 @@ function ModalEditSong({ item, fetchData }) {
         if(response.ok) {
             setMensaje('Canción editada correctamente');
             fetchData(); // Refresca la tabla después de editar
+            setTimeout(() => {
+              setMensaje('');
+            }, 2000);
         }
         else {
             const data = await response.json();
             setMensaje(`Error: ${data.message || 'No se pudo editar la canción'}`);
+            setTimeout(() => {
+              setMensaje('');
+            }, 2000);
         }
     } catch (error) {
         setMensaje(`Error: ${error.message}`);
+        setTimeout(() => {
+          setMensaje('');
+        }, 2000);
     }
   };
 

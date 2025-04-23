@@ -5,10 +5,7 @@ function ModalAddSong() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setMensaje('');
-  }
+  const closeModal = () => setIsModalOpen(false);
 
   const [formData, setFormData] = useState({
     name_song: '',
@@ -50,11 +47,20 @@ function ModalAddSong() {
           gender: '',
           popularity: ''
         });
+        setTimeout(() => {
+          setMensaje('');
+        }, 2000);
       } else {
         setMensaje(`Error: ${data.message || 'No se pudo añadir la canción'}`);
+        setTimeout(() => {
+          setMensaje('');
+        }, 2000);
       }
     } catch (error)  {
       setMensaje(`Error: ${error.message}`);
+      setTimeout(() => {
+        setMensaje('');
+      }, 2000);
     }
   };
 
