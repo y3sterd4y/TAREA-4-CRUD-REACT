@@ -103,16 +103,7 @@ function ModalEditSong({ item, fetchData }) {
         isActive={isModalOpen}
         onClose={closeModal}
         title="Editar Canción"
-        footer={
-          <div className="buttons">
-            <button className="button is-success" onClick={handleSubmit}>
-              Agregar cambios
-            </button>
-            <button className="button" onClick={closeModal}>
-              Cancelar
-            </button>
-          </div>
-        }
+        footer={false}
       >
         <form onSubmit={handleSubmit}>
           <div className="field">
@@ -143,6 +134,14 @@ function ModalEditSong({ item, fetchData }) {
           {mensaje && <div className={`notification ${mensaje.includes('Error') ? 'is-danger' : 'is-success'}`}>
             {mensaje}
             </div>}
+            <div className="buttons">
+              <button className="button is-success" type="submit">
+                Agregar cambios
+              </button>
+              <button className="button" type="button" onClick={closeModal}>
+                Cancelar
+              </button>
+            </div>
         </form>
       </Modal>
     </div>
